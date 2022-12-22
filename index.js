@@ -195,7 +195,7 @@
 
 
 
-//----------------------------------------------------------------------------//
+//-------------------------------------------------------------------------------//
 
 
 // let array=[];
@@ -243,4 +243,124 @@
 
 
 
-//t
+//------------------------------------------------------------------------------//
+// Complete Crud  Using Array of Array
+
+// let Editing=0;
+// let array=[];
+
+// document.querySelector("#submit").addEventListener("click",()=>{
+//     if(Editing==0){
+//         getData();
+//     }else{
+//    Editng(Editing);
+//     Editing=0;
+//     }
+   
+// })
+
+// function getData(){
+// const FirstName=document.querySelector("#firstName").value;
+// const LastName=document.querySelector("#lastName").value;
+// const Roll_No=document.querySelector("#roll-no").value;
+// const date=new Date().getTime();
+// const newarray=[FirstName,LastName,Roll_No,date];
+// array=[...array,newarray];
+
+
+//  AddList(array);
+
+// }
+
+// function AddList(arr){
+
+//   let row="";
+
+//  arr.map((value)=>{
+
+//     row+=`<tr>
+//         <td>${value[0]}</td>
+//         <td>${value[1]}</td>
+//         <td>${value[2]}</td>
+//         <td><button class="btn btn-warning"  onclick="Edit(${value[3]})">Edit</td>
+//         <td><button class="btn btn-danger"  onclick="Delete(${value[3]})">Delete</button></td>
+//     </tr>`
+
+//  })
+
+//  document.querySelector("#student-list").innerHTML=row;
+//  document.querySelector("#firstName").value="";
+//     document.querySelector("#lastName").value="";
+//     document.querySelector("#roll-no").value="";
+
+// Editing=0;
+// }
+
+// function Delete(id){
+//   const deleted=array.filter((val)=>{
+//     return val[3]!=id;
+//   });
+//   array=deleted;
+//   AddList(array);
+//   Editing=0;
+// }
+
+
+// function Edit(id){
+// array.map((val)=>{
+//     if(id==val[3]){
+//         Editing=val[3];
+//     document.querySelector("#firstName").value=val[0];
+//     document.querySelector("#lastName").value=val[1];
+//     document.querySelector("#roll-no").value=val[2];
+//     }
+// })
+// }
+
+
+
+
+// function Editng(value){
+
+//    const E= array.map((val)=>{
+//         if(val[3]===value){
+//             val[0]=document.querySelector("#firstName").value;
+//             val[1]=document.querySelector("#lastName").value
+//             val[2]=document.querySelector("#roll-no").value
+//         }
+//         return val;
+//     })
+//     console.log(E);
+
+//     array=E;
+//     AddList(array);
+// }
+
+
+//----------------------------------------------------------------------------//
+
+
+document.querySelector("#submit").addEventListener("click",()=>{
+   const data= readData();
+   insertNewRow(data);
+})
+
+
+function readData(){
+    let Data={}
+   Data["FirstName"]=document.querySelector("#firstName").value;
+   Data["LastName"]=document.querySelector("#lastName").value;
+   Data ["Roll_No"]=document.querySelector("#roll-no").value;
+
+   return Data;
+
+}
+
+function insertNewRow(data){
+    var table=document.getElementById("shortlist").document.getElementsByTagName("tbody")[0];
+    var newRow=table.insertNewRow(table.length)
+    var Cell1=insertCell(0);
+     
+    Cell1.innerHTML=data.FirstName;
+    console.log(table);
+}
