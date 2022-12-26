@@ -37,18 +37,29 @@ c:'Object Oriented',
 d:'Query Langauge ',
 correctanswer:'Cascading Style Sheets'
 }
+,
+{
+  que:'In Salsoft During  Internship Stipend?',
+  a:'15,000',
+  b:'18,000',
+  c:'20,000',
+  d:'30,000',
+  correctanswer:'15,000'
+  }
+
 
 
 ]
 
 
 
-
-
+let  CorrectAns=0;
 
 let correctans="";
 
+
 let Temp=false;
+
 
 let option_inputs=document.querySelectorAll(".row");
 let index=0;
@@ -60,7 +71,7 @@ function Loadquestion(obj){
  if(object.length>index){
 
   let data=object[index];
- question.innerHTML=`${index+1+")" } ${data.que}`
+ question.innerHTML=`${index+1+")" } ${data.que}`;
  option_inputs[0].checked=false;
  option_inputs[1].checked=false;
  option_inputs[2].checked=false;
@@ -73,6 +84,13 @@ function Loadquestion(obj){
   
 
  
+ }else{
+  
+ let k= document.getElementById("main");
+ k.style.display="none";
+  document.querySelector("#Thank").innerHTML=`${"Thank For the Playing"+ "</br>"
+  + "<p>Correct Answer is: </p>"+CorrectAns +" out of "+index  }`;
+   
  }
    
 }
@@ -84,16 +102,19 @@ function Loadquestion(obj){
 function Submit (){
 
 if(index>=0){
-  console.log(index);
+  // console.log(index);
   const gg= document.querySelector("#correctanswer");
  
   
 //  gg.innerHTML=`${"Correct Answer is : "+object[index].correctanswer}`;
   NowInput();
+
   if(object[index].correctanswer===correctans){
     gg.innerHTML="Correct";
+    CorrectAns+=1;
+    
   }else{
-    gg.innerHTML=`${"Wrong </br> Correct Answer is : "+object[index].correctanswer}`;
+    gg.innerHTML=`${"Wrong </br> Correct Answer is: "+object[index].correctanswer}`;
   }
   index+=1;
  
@@ -101,7 +122,7 @@ if(index>=0){
  setTimeout(()=>{
   Loadquestion(index);
   document.querySelector("#correctanswer").innerHTML="";
- },2000)
+ },0000);
   
   
   }

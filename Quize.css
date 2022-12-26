@@ -8,7 +8,7 @@ body{
     background-color: rgb(166, 240, 215);
 }
 
-.main{
+#main{
     width:100%;
    height:100vh;
    display: flex;
