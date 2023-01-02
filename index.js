@@ -2,11 +2,12 @@
 
 
 
+
 // let SelectedRow=null;
 
 
 // const showalert=(message)=>{
-
+ 
 // const div=document.createElement("div");
 // div.className="alert";
 // div.appendChild(document.createTextNode(message));
@@ -228,6 +229,9 @@
 //       <td> <button class="btn btn-danger " onclick="Delete(${r[3]})">Delete</button></td>
 //        </tr>
 //       `
+//       document.querySelector("#firstName").value="";
+//         document.querySelector("#lastName").value="";
+//         document.querySelector("#roll-no").value="";
 //    })
 // //    console.log(tr);
 //    document.querySelector("#student-list").innerHTML=tr;
@@ -243,4 +247,65 @@
 
 
 
-//t
+
+
+
+// New way
+
+//-------------------------------------------------------------------------//
+
+let array=[];
+
+
+
+function myfun(){
+
+    const FirstName=document.querySelector("#firstName").value;
+    const LastName=document.querySelector("#lastName").value;
+    const Roll_No=document.querySelector("#roll-no").value;
+
+
+    if(FirstName==="" || LastName==="" || Roll_No===""){
+        alert("Please Fill all Fields");
+        document.querySelector("#firstName").value="";
+         document.querySelector("#lastName").value="";
+         document.querySelector("#roll-no").value="";
+    }else{
+
+        const date=new Date().getTime()
+
+        let row=document.createElement("tr");
+          row.className=date;
+            row.innerHTML=`
+            <td>${FirstName}</td>
+            <td>${LastName}</td>
+            <td>${Roll_No}</td>
+            <td><button class="btn btn-warning" onclick="Edit()">Edit</button></td>
+            <td><button class="btn btn-danger" onclick="Delete(${date})">Delete</button></td>
+        `
+   
+        document.querySelector("#student-list").appendChild(row);
+         document.querySelector("#firstName").value="";
+         document.querySelector("#lastName").value="";
+         document.querySelector("#roll-no").value="";
+    
+    
+    }
+    
+}
+
+
+function Edit(){
+
+}
+
+function Delete(para){
+let f= document.querySelector("#student-list");
+for(i=1;i<=f.children.length;i++){
+if(f.children[i-1].classList.contains(para)){
+    f.children[i-1].remove();
+}
+}
+
+
+}

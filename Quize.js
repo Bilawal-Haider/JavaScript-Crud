@@ -89,7 +89,7 @@ function Loadquestion(obj){
  let k= document.getElementById("main");
  k.style.display="none";
   document.querySelector("#Thank").innerHTML=`${"Thank For the Playing"+ "</br>"
-  + "<p>Correct Answer is: </p>"+CorrectAns +" out of "+index  }`;
+  + "<p>Correct Answer's: </p>"+CorrectAns +" out of "+index  }`;
    
  }
    
@@ -122,7 +122,7 @@ if(index>=0){
  setTimeout(()=>{
   Loadquestion(index);
   document.querySelector("#correctanswer").innerHTML="";
- },0000);
+ },2000);
   
   
   }
@@ -151,12 +151,3 @@ Loadquestion(object);
 
 
 
-
-
-
-// if(object[index].correctanswer===correctans){
-  //   gg.innerHTML="Correct" ;
-  // }
-  // else{
-  //   gg.innerHTML="Wrong"
-  // }
